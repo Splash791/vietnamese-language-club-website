@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
+import { config } from '@/config';
 import './globals.css';
 import './layout.css';
+import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Vietnamese Language Club at OSU',
-  description: 'Learn Vietnamese with the OSU community. Master speaking, listening, grammar, and vocabulary through structured lessons and conversation practice.',
+  title: config.site.title,
+  description: config.site.description,
 };
 
 export default function RootLayout({
@@ -16,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="layout">
+        <Navigation />
         <main className="main">{children}</main>
         <Footer />
       </body>

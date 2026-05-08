@@ -1,0 +1,150 @@
+.container {
+  width: 100%;
+}
+
+.hero {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F7 100%);
+  padding: 4rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.postCard {
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-lg);
+  transition: box-shadow var(--transition-normal);
+}
+
+.postCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.postHeader {
+  margin-bottom: 1rem;
+}
+
+.postTitle {
+  text-decoration: none;
+  color: inherit;
+}
+
+.postTitle h2 {
+  font-size: 1.8rem;
+  color: var(--color-secondary);
+  margin: 0 0 1rem 0;
+  transition: color var(--transition-fast);
+}
+
+.postTitle:hover h2 {
+  color: var(--color-primary);
+}
+
+.meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.category {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+}
+
+.excerpt {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 1rem 0;
+}
+
+.readMore {
+  display: inline-block;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.readMore:hover {
+  color: var(--color-secondary);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .content {
+    padding: 2rem 1.5rem;
+  }
+
+  .postCard {
+    padding: 1.5rem;
+  }
+
+  .postTitle h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 1.5rem 1rem;
+  }
+
+  .postCard {
+    padding: 1rem;
+  }
+
+  .postTitle h2 {
+    font-size: 1.2rem;
+  }
+
+  .meta {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}

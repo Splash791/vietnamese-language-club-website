@@ -1,3 +1,4 @@
+import { config } from '@/config';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -7,20 +8,20 @@ export default function Footer() {
         <div className={styles.content}>
           <div className={styles.section}>
             <h3>Vietnamese Language Club</h3>
-            <p>Learn Vietnamese with the OSU community</p>
+            <p>{config.site.description.split('.')[0]}.</p>
           </div>
 
           <div className={styles.section}>
             <h4>Contact</h4>
-            <a href="mailto:vietnameselanguage.clubs@oregonstate.edu" className={styles.link}>
-              vietnameselanguage.clubs@oregonstate.edu
+            <a href={`mailto:${config.links.email}`} className={styles.link}>
+              {config.links.email}
             </a>
           </div>
 
           <div className={styles.section}>
             <h4>Follow Us</h4>
             <a
-              href="https://www.instagram.com/vietlanguageatosu?igsh=MXdhbXl3MzdieDAxbg=="
+              href={config.links.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.link}
@@ -32,7 +33,7 @@ export default function Footer() {
           <div className={styles.section}>
             <h4>Partner</h4>
             <a
-              href="https://www.ideallogic.com"
+              href={config.links.partner}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.link}
@@ -45,7 +46,7 @@ export default function Footer() {
         <div className={styles.divider}></div>
 
         <div className={styles.bottom}>
-          <p>&copy; 2026 Vietnamese Language Club at OSU. All rights reserved.</p>
+          <p>&copy; 2026 {config.site.title}. All rights reserved.</p>
         </div>
       </div>
     </footer>
