@@ -1,0 +1,156 @@
+.footer {
+  background: linear-gradient(135deg, #1D1D1D 0%, #252525 100%);
+  color: white;
+  padding: 4rem 0 2rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: white;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.section h4 {
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.section p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.link {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.link:hover {
+  color: var(--color-primary);
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+}
+
+.bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .footer {
+    padding: 3rem 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 2.5rem 0 1.5rem;
+  }
+
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .section h4 {
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .section p,
+  .link {
+    font-size: 0.9rem;
+  }
+
+  .bottom {
+    font-size: 0.8rem;
+  }
+
+  .divider {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 0 1.2rem;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section h3 {
+    font-size: 0.95rem;
+  }
+
+  .section h4 {
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .section p,
+  .link {
+    font-size: 0.85rem;
+  }
+
+  .bottom {
+    font-size: 0.75rem;
+  }
+
+  .divider {
+    margin-bottom: 1rem;
+  }
+}
