@@ -1,310 +1,202 @@
 .container {
   width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero {
-  background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F7 100%);
-  padding: 4rem 1.5rem;
+  padding: 5rem 1.5rem 2rem;
   text-align: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  position: relative;
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   color: var(--color-secondary);
   margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
   color: var(--color-text-muted);
-  max-width: 600px;
+  max-width: 680px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
 .content {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 3rem 1.5rem 5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .section {
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-normal);
 }
 
-.section h2 {
-  font-size: 1.5rem;
-  color: var(--color-secondary);
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-}
-
-.section p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--color-text-muted);
-  margin-bottom: 1rem;
-}
-
-.section p:last-of-type {
-  margin-bottom: 0;
+.section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 50px rgba(211, 47, 47, 0.08);
+  border-color: rgba(211, 47, 47, 0.15);
 }
 
 .list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 .list li {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 1.65;
   color: var(--color-text-muted);
-  padding: 0.8rem 0;
-  padding-left: 2rem;
+  padding: 1rem 1.2rem 1rem 2.5rem;
   position: relative;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-gold);
+  transition: all var(--transition-fast);
+}
+
+.list li:hover {
+  background: white;
+  transform: translateX(4px);
+  border-left-color: var(--color-primary);
 }
 
 .list li::before {
-  content: '•';
+  content: '✨';
   position: absolute;
-  left: 0;
-  color: var(--color-primary);
-  font-weight: bold;
-  font-size: 1.2rem;
+  left: 10px;
+  top: 1rem;
+  font-size: 0.9rem;
 }
 
-.contactLinks {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-
-.contactLinks .btn {
-  text-decoration: none;
-}
-
-/* Join Section */
-.contactLinks {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-
-.contactLinks .btn {
-  text-decoration: none;
-}
-
-/* Team Section */
+/* Stunning Leadership Section */
 .teamSection {
   width: 100%;
-  padding: 4rem 1.5rem;
+  padding: 5rem 1.5rem 7rem;
   text-align: center;
-  background: white;
+  position: relative;
+  background: linear-gradient(180deg, rgba(245, 245, 247, 0.4) 0%, transparent 100%);
 }
 
 .teamSection h2 {
-  font-size: 1.5rem;
+  font-size: clamp(2rem, 4vw, 2.8rem);
   color: var(--color-secondary);
-  margin: 0 auto 3rem;
-  font-weight: 700;
-  max-width: 1000px;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
+/* Beautiful Staggered Desktop Grid */
 .teamGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
+  align-items: start;
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 3rem auto 0;
+}
+
+/* Apply sleek top vertical margin stagger to even cards */
+.teamGrid > div:nth-child(even) {
+  margin-top: 2.5rem;
 }
 
 .teamCard {
   text-align: center;
   cursor: pointer;
-  padding: 1.5rem;
-  border-radius: 8px;
-  transition: all var(--transition-normal);
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-xl);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   display: flex;
   flex-direction: column;
   align-items: center;
+  backdrop-filter: blur(10px);
 }
 
 .teamCard:hover {
-  border-color: var(--color-primary);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-4px);
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 20px 40px rgba(211, 47, 47, 0.12) !important;
+  border-color: rgba(211, 47, 47, 0.3) !important;
+  background: white;
 }
 
 .avatar {
-  width: 90px;
-  height: 90px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-primary) 0%, #C2185B 100%);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 auto 1rem;
-}
-
-.teamCard h3 {
-  font-size: 1rem;
-  color: var(--color-secondary);
-  margin-bottom: 0.4rem;
-  font-weight: 600;
+  font-weight: 800;
+  margin: 0 auto 1.2rem;
+  border: 3px solid white;
 }
 
 .role {
   font-size: 0.85rem;
   color: var(--color-primary);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.08em;
   margin-bottom: 0.8rem;
 }
 
 .bio {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: 1.65;
   margin: 0;
-  padding-top: 0.8rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.teamCard.expanded {
-  border-color: var(--color-primary);
+@media (max-width: 992px) {
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  /* Reset previous 3-column stagger and re-apply on right column */
+  .teamGrid > div:nth-child(even) {
+    margin-top: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 3rem 1.5rem;
+    padding-top: 3rem;
   }
-
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-
   .content {
-    padding: 2rem 1.5rem;
+    padding-top: 2rem;
   }
-
-  .section h2 {
-    font-size: 1.3rem;
-  }
-
-  .contactLinks {
-    flex-direction: column;
-  }
-
-  .contactLinks .btn {
-    width: 100%;
-  }
-
   .teamSection {
     padding: 3rem 1.5rem;
   }
-
-  .teamSection h2 {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-  }
-
-  .teamGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    max-width: 600px;
-  }
-
-  .teamCard {
-    padding: 1.2rem;
-  }
-
-  .avatar {
-    width: 80px;
-    height: 80px;
-    font-size: 2rem;
-    margin-bottom: 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .content {
-    padding: 1.5rem 1rem;
-  }
-
-  .hero {
-    padding: 2rem 1rem;
-  }
-
-  .hero h1 {
-    font-size: 1.5rem;
-  }
-
-  .subtitle {
-    font-size: 0.95rem;
-  }
-
-  .section h2 {
-    font-size: 1.2rem;
-  }
-
-  .section p {
-    font-size: 0.95rem;
-  }
-
-  .list li {
-    font-size: 0.9rem;
-  }
-
-  .teamSection {
-    padding: 2rem 1rem;
-  }
-
-  .teamSection h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-  }
-
   .teamGrid {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    max-width: 300px;
+    max-width: 450px;
+    gap: 1.5rem;
   }
-
+  /* Remove staggered offset entirely on mobile stacked view */
+  .teamGrid > div:nth-child(even) {
+    margin-top: 0;
+  }
   .teamCard {
-    padding: 1rem;
-  }
-
-  .avatar {
-    width: 70px;
-    height: 70px;
-    font-size: 1.6rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .teamCard h3 {
-    font-size: 0.85rem;
-  }
-
-  .role {
-    font-size: 0.7rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .bio {
-    font-size: 0.8rem;
-    padding-top: 0.5rem;
+    padding: 1.5rem !important;
   }
 }

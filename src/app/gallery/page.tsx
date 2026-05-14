@@ -1,79 +1,56 @@
+'use client';
+
 import styles from './page.module.css';
+import { useLanguage } from '../context/LanguageContext';
 
 const galleryImages = [
   {
     id: 1,
-    title: 'Club Meeting',
-    description: 'Regular weekly club meetings where members practice Vietnamese together',
-    src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop',
-  },
-  {
-    id: 2,
-    title: 'Tet Celebration',
-    description: 'Vietnamese New Year celebration with traditional decorations and food',
-    src: 'https://images.unsplash.com/photo-1519671482677-adf6ad305b75?w=500&h=500&fit=crop',
-  },
-  {
-    id: 3,
-    title: 'Language Workshop',
-    description: 'Interactive workshops on Vietnamese grammar and pronunciation',
-    src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop',
-  },
-  {
-    id: 4,
-    title: 'Cultural Food Night',
-    description: 'Members sharing and enjoying traditional Vietnamese cuisine',
-    src: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&h=500&fit=crop',
-  },
-  {
-    id: 5,
-    title: 'Conversation Practice',
-    description: 'Friendly conversation sessions to improve speaking skills',
-    src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop',
-  },
-  {
-    id: 6,
-    title: 'Movie Night',
-    description: 'Watch and discuss Vietnamese films with subtitles',
-    src: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500&h=500&fit=crop',
-  },
-  {
-    id: 7,
-    title: 'Group Photo',
-    description: 'Club members together at our end of semester celebration',
-    src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=500&fit=crop',
-  },
-  {
-    id: 8,
-    title: 'Calligraphy Workshop',
-    description: 'Learning traditional Vietnamese calligraphy and brush techniques',
-    src: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500&h=500&fit=crop',
+    titleEn: 'First Meeting',
+    titleVi: 'Cuộc gặp đầu tiên',
+    descEn: 'Our first ever general body meeting',
+    descVi: 'Cuộc họp toàn thể đầu tiên của chúng tôi',
+    src: '/assets/IMG_5545.jpg',
   },
 ];
 
 export default function Gallery() {
+  const { t } = useLanguage();
+
   return (
     <div className={styles.container}>
       <section className={styles.hero}>
-        <h1>Gallery</h1>
-        <p className={styles.subtitle}>Moments from our Vietnamese Language Club community</p>
+        <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#D4AF37', letterSpacing: '0.15em', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
+          {t('Moments', 'Khoảnh Khắc')}
+        </span>
+        <h1 style={{ color: '#000000' }}>{t('Gallery Moments', 'Thư Viện Ảnh')}</h1>
+        <p className={styles.subtitle}>
+          {t(
+            'Visual memories from our Vietnamese Language Club study sessions, festive celebrations, and vibrant cultural nights.',
+            'Những kỷ niệm hình ảnh qua các buổi học, sự kiện giao lưu và các đêm văn hóa đặc sắc của Câu Lạc Bộ Tiếng Việt.'
+          )}
+        </p>
       </section>
 
       <div className={styles.content}>
         <div className={styles.gallery}>
           {galleryImages.map((image) => (
-            <div key={image.id} className={styles.imageWrapper}>
+            <div key={image.id} className={`glass-panel ${styles.imageWrapper}`}>
               <div
-                className={styles.imagePlaceholder}
+                className={styles.imageBox}
                 style={{
                   backgroundImage: `url(${image.src})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}
               />
-              <div className={styles.overlay}>
-                <h3>{image.title}</h3>
-                <p>{image.description}</p>
+              <div className={styles.infoBox}>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#121212', margin: '0 0 0.3rem 0' }}>
+                  {t(image.titleEn, image.titleVi)}
+                </h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.5, margin: 0 }}>
+                  {t(image.descEn, image.descVi)}
+                </p>
               </div>
             </div>
           ))}

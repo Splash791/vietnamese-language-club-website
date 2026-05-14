@@ -87,8 +87,9 @@ Start by practicing these basic phrases daily. Focus on listening carefully to t
   },
 };
 
-export default function BlogPost({ params }: { params: { id: string } }) {
-  const post = blogPosts[params.id];
+export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  const post = blogPosts[resolvedParams.id];
 
   if (!post) {
     return (
@@ -124,12 +125,12 @@ export default function BlogPost({ params }: { params: { id: string } }) {
             if (paragraph.startsWith('#')) {
               const level = paragraph.match(/^#+/)?.[0].length || 2;
               const text = paragraph.replace(/^#+\s/, '');
-              const HeadingTag = `h${level}` as const;
-              return (
-                <HeadingTag key={index} className={styles[`heading${level}`]}>
-                  {text}
-                </HeadingTag>
-              );
+              const className = styles[`heading${level}`];
+              if (level === 1) return <h1 key={index} className={className}>{text}</h1>;
+              if (level === 2) return <h2 key={index} className={className}>{text}</h2>;
+              if (level === 3) return <h3 key={index} className={className}>{text}</h3>;
+              if (level === 4) return <h4 key={index} className={className}>{text}</h4>;
+              return <h5 key={index} className={className}>{text}</h5>;
             }
             if (paragraph.startsWith('-')) {
               return (

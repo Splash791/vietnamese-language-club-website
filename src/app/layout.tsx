@@ -4,6 +4,7 @@ import './globals.css';
 import './layout.css';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import { LanguageProvider } from './context/LanguageContext';
 
 export const metadata: Metadata = {
   title: config.site.title,
@@ -18,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="layout">
-        <Navigation />
-        <main className="main">{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Navigation />
+          <main className="main">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

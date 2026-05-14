@@ -1,6 +1,6 @@
 export const config = {
   site: {
-    title: 'Vietnamese Language Club at OSU',
+    title: 'Vietnamese Language Club',
     description: 'Learn Vietnamese with the OSU community. Master speaking, listening, grammar, and vocabulary through structured lessons and conversation practice.',
   },
   links: {
